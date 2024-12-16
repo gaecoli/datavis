@@ -1,5 +1,6 @@
 package com.gaecoli.datavis.service.impl;
 
+import com.gaecoli.datavis.dto.UserDTO;
 import com.gaecoli.datavis.dto.UserRegisterDTO;
 import com.gaecoli.datavis.entity.User;
 import com.gaecoli.datavis.mapper.UserMapper;
@@ -18,8 +19,12 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public User getUserById(Long id) {
-        return userMapper.selectById(id);
+    public UserDTO getUserById(Long id) {
+        User user = userMapper.selectById(id);
+        if (user == null) {
+            return null;
+        }
+        // 转为 UserDTO， 不能透出密码字段
     }
 
     @Override
