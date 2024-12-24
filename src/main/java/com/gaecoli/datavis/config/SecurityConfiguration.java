@@ -68,6 +68,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logout().logoutUrl("/auth/logout").and()
                 .authorizeRequests()
                 // 指定路径下的资源需要进行验证后才能访问
+                .antMatchers("/hello").permitAll()
                 .antMatchers("/").permitAll()
                 // 配置登录地址
                 .antMatchers(HttpMethod.POST, SecurityConstants.AUTH_LOGIN_URL).permitAll()

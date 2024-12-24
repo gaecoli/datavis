@@ -34,6 +34,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
+    public void updateUser(User user) {
+        if (user == null) {
+            return;
+        }
+        userMapper.updateById(user);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
     public User registerUser(UserRegisterDTO dto) {
         User findUser = userMapper.getUserByEmail(dto.getEmail());
         if (Optional.ofNullable(findUser).isPresent()) {

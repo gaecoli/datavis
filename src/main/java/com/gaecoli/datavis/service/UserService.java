@@ -12,4 +12,6 @@ public interface UserService {
     User getUserByEmail(String email);
 
     User registerUser(UserRegisterDTO dto);
+
+    void updateUser(User user);
 }
