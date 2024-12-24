@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
         if (user == null) {
             return null;
         }
-        // 转为 UserDTO， 不能透出密码字段
+        return new UserDTO(user);
     }
 
     @Override

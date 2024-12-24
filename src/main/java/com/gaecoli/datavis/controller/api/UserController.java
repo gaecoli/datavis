@@ -1,6 +1,7 @@
 package com.gaecoli.datavis.controller.api;
 
 import com.gaecoli.datavis.controller.base.BaseController;
+import com.gaecoli.datavis.dto.UserDTO;
 import com.gaecoli.datavis.dto.UserRegisterDTO;
 import com.gaecoli.datavis.entity.User;
 import com.gaecoli.datavis.service.UserService;
@@ -17,7 +18,7 @@ public class UserController extends BaseController {
     private UserService userService;
 
     @GetMapping(value = "/get")
-    public User getUserById(@RequestParam Long id) {
+    public UserDTO getUserById(@RequestParam Long id) {
         return userService.getUserById(id);
     }
 
